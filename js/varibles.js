@@ -21,4 +21,3 @@ export const editando = {
     value : false
 }
 
-// Variables para index.html
