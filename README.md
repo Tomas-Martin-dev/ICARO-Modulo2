@@ -1,1 +1,1 @@
-Pryecto para entrega de Modulo 2 (javasrcipt) de Icaro Diplomatura
+Pryecto para entrega de Modulo 2 (javascript) de Icaro Diplomatura
