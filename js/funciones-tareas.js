@@ -11,11 +11,13 @@ export const validarForm = (e) => {
     if (editando.value) {
         datosNotas.info = inputInfo.value;
         datosNotas.titulo = inputTitulo.value;
+        datosNotas.fecha = fechaFormateada();
         editarCita(datosNotas); // funcion editar una cita creada
     } else {
         datosNotas.id = generarID();
         datosNotas.info = inputInfo.value;
         datosNotas.titulo = inputTitulo.value;
+        datosNotas.fecha = fechaFormateada();
         iterarArray([datosNotas]); // funcion para mostrar las notas nuevas o almacenadas en local
         notesLocal.push({ ...datosNotas });
         gaurdarEnLocal();
@@ -54,15 +56,14 @@ const resetForm = () => {
 
 const gaurdarEnLocal = () => {
     let arrayLocal = JSON.parse(localStorage.getItem("notas"));
-    arrayLocal = notesLocal;
-
+    arrayLocal = notesLocal;    
     localStorage.setItem("notas", JSON.stringify(arrayLocal));
 }
 
 export const iterarArray = (array) => {
 
     array.forEach(note => {
-        const { fecha, titulo, info, id } = note;
+        const {fecha, titulo, info, id } = note;
 
         // creo html
         const container = document.createElement("div");
@@ -70,8 +71,8 @@ export const iterarArray = (array) => {
 
         const f = document.createElement("p");
         f.classList.add("fecha");
-        f.textContent = fechaFormateada();
-
+        f.textContent = fecha;
+        
         const t = document.createElement("h4");
         t.classList.add("titulo");
         t.textContent = titulo;
@@ -154,11 +155,11 @@ const limpiarList = () => {
 }
 
 const fechaFormateada = () => {
-    const fecha = new Date();
+    const fechaa = new Date();
 
-    const dia = String(fecha.getDate()).padStart(2, '0');
-    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); 
-    const año = fecha.getFullYear();
-
+    const dia = String(fechaa.getDate()).padStart(2, '0');
+    const mes = String(fechaa.getMonth() + 1).padStart(2, '0'); 
+    const año = fechaa.getFullYear();
+    
     return `${dia}-${mes}-${año}`;
 };

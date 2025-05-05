@@ -1,5 +1,5 @@
-import { iterarArray, validarForm } from "./js/funciones-tareas.js";
-import { datosNotas, editando, form } from "./js/varibles.js";
+import { iterarArray, validarForm } from "./funciones-tareas.js";
+import { datosNotas, editando, form } from "./varibles.js";
 
 // eventos
 form.addEventListener("submit", (e)=> validarForm(e) )
